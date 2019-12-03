@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RestController("api")
+@RestController
 @RequestMapping("/api")
 public class APIController {
 
