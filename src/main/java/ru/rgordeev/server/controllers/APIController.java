@@ -5,7 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MimeType;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -41,5 +45,10 @@ public class APIController {
     public ResponseEntity<String> delete(@PathVariable(name = "id") Integer id) {
         String response = String.format("Item with id: %d was deleted", id);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping(value = "/form", consumes = "application/x-www-form-urlencoded", produces = "application/json")
+    public ResponseEntity<Map> form(@RequestBody MultiValueMap form) {
+        return ResponseEntity.ok(form);
     }
 }
