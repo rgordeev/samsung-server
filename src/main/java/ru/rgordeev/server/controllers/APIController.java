@@ -51,4 +51,10 @@ public class APIController {
     public ResponseEntity<Map> form(@RequestBody MultiValueMap form) {
         return ResponseEntity.ok(form);
     }
+
+    @GetMapping(value = "/query")
+    public ResponseEntity<String> query(@RequestParam("name") String name, @RequestParam("lastname") String lastname) {
+        String response = String.format("Hello, %s %s!", name, lastname);
+        return ResponseEntity.ok(response);
+    }
 }
